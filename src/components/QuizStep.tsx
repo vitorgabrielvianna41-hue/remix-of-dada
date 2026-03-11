@@ -35,7 +35,17 @@ const QuizStep = ({
     setLocalMulti([]);
     setSliderValue(step?.sliderConfig?.default ?? 70);
     setUseAltUnit(false);
-  }, [step?.id, step?.sliderConfig?.default]);
+  const handleSliderMove = useCallback(
+    (clientX: number) => {
+      if (!trackRef.current || !step?.sliderConfig) return;
+      const rect = trackRef.current.getBoundingClientRect();
+      const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      const { min, max } = step.sliderConfig;
+      const val = Math.round(min + pct * (max - min));
+      setSliderValue(val);
+    },
+    [step?.sliderConfig]
+  );
 
   if (!step) return null;
 
@@ -44,18 +54,6 @@ const QuizStep = ({
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     );
   };
-
-  const handleSliderMove = useCallback(
-    (clientX: number) => {
-      if (!trackRef.current || !step.sliderConfig) return;
-      const rect = trackRef.current.getBoundingClientRect();
-      const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-      const { min, max } = step.sliderConfig;
-      const val = Math.round(min + pct * (max - min));
-      setSliderValue(val);
-    },
-    [step.sliderConfig]
-  );
 
   const onPointerDown = (e: React.PointerEvent) => {
     isDragging.current = true;
