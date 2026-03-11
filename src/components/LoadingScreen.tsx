@@ -1,5 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import avatarLucia from "@/assets/avatar-lucia.png";
+import avatarVivan from "@/assets/vivan-avatar.png";
+import avatarCarminha from "@/assets/avatar-carminha.png";
+import avatarLuciana from "@/assets/avatar-luciana.png";
 
 interface LoadingScreenProps {
   onComplete: () => void;
