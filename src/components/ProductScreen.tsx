@@ -12,7 +12,7 @@ const FAQ_ITEMS = [
   { q: "Preciso fazer dieta ou outros exercícios?", a: "Não! O protocolo inclui um plano alimentar simples e prático. Você não precisa de academia, personal trainer ou dietas restritivas. Apenas 10 minutos por dia em casa." },
   { q: "Tem alguma contraindicação?", a: "O pilates em casa é um exercício de baixo impacto, seguro para todas as idades. Porém, se você tem alguma condição médica específica, recomendamos consultar seu médico antes de iniciar." },
   { q: "Em quanto tempo vejo resultados?", a: "A maioria das alunas relata resultados visíveis já nas primeiras 2 semanas. Resultados mais expressivos aparecem entre 4 a 8 semanas seguindo o protocolo." },
-  { q: "Como funciona a garantia?", a: "Você tem 7 dias para experimentar o protocolo completo. Se não ficar satisfeita por qualquer motivo, basta solicitar o reembolso e devolvemos 100% do valor. Sem perguntas." },
+  { q: "Como funciona a garantia?", a: "Você tem 30 dias para experimentar o protocolo completo. Se não ficar satisfeita por qualquer motivo, basta solicitar o reembolso e devolvemos 100% do valor. Sem perguntas." },
   { q: "O que vem no protocolo?", a: "Você recebe: treinos de pilates de 10 min/dia, plano de reposição hormonal natural, guia anti-barriga, receitas saudáveis, aulas em vídeo e acesso vitalício pelo celular." },
 ];
 
