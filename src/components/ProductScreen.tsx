@@ -5,6 +5,7 @@ import avatarSimone from "@/assets/avatar-simone.png";
 import avatarDraAna from "@/assets/avatar-dra-ana.png";
 import transformationImage from "@/assets/transformation-result.png";
 import protocoloApp from "@/assets/protocolo-app.jpg";
+import garantia30dias from "@/assets/garantia-30dias.png";
 
 const FAQ_ITEMS = [
   { q: "O Pilates em Casa realmente funciona para menopausa?", a: "Sim! O protocolo foi desenvolvido especificamente para mulheres na menopausa. Os exercícios de baixo impacto ativam a produção hormonal natural e aceleram o metabolismo, mesmo com as mudanças hormonais dessa fase." },
