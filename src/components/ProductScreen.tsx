@@ -4,6 +4,7 @@ import avatarLarissa from "@/assets/avatar-larissa.png";
 import avatarSimone from "@/assets/avatar-simone.png";
 import avatarDraAna from "@/assets/avatar-dra-ana.png";
 import transformationImage from "@/assets/transformation-result.png";
+import protocoloApp from "@/assets/protocolo-app.jpg";
 
 const FAQ_ITEMS = [
   { q: "O Pilates em Casa realmente funciona para menopausa?", a: "Sim! O protocolo foi desenvolvido especificamente para mulheres na menopausa. Os exercícios de baixo impacto ativam a produção hormonal natural e aceleram o metabolismo, mesmo com as mudanças hormonais dessa fase." },
@@ -104,7 +105,9 @@ const ProductScreen = () => {
       </div>
 
       {/* 3. O que está incluso */}
-      <div className="bg-card rounded-[var(--radius)] p-5" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
+      <div className="bg-card rounded-[var(--radius)] overflow-hidden" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
+        <img src={protocoloApp} alt="App Protocolo Completo" className="w-full h-auto object-cover" />
+        <div className="p-5">
         <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider mb-3">
           APP PROTOCOLO COMPLETO · ACESSO VITALÍCIO
         </p>
@@ -137,6 +140,7 @@ const ProductScreen = () => {
               <p className="text-sm" style={{ color: "var(--text)" }}>{item}</p>
             </div>
           ))}
+        </div>
         </div>
       </div>
 
