@@ -5,13 +5,14 @@ import avatarSimone from "@/assets/avatar-simone.png";
 import avatarDraAna from "@/assets/avatar-dra-ana.png";
 import transformationImage from "@/assets/transformation-result.png";
 import protocoloApp from "@/assets/protocolo-app.jpg";
+import garantia30dias from "@/assets/garantia-30dias.png";
 
 const FAQ_ITEMS = [
   { q: "O Pilates em Casa realmente funciona para menopausa?", a: "Sim! O protocolo foi desenvolvido especificamente para mulheres na menopausa. Os exercícios de baixo impacto ativam a produção hormonal natural e aceleram o metabolismo, mesmo com as mudanças hormonais dessa fase." },
   { q: "Preciso fazer dieta ou outros exercícios?", a: "Não! O protocolo inclui um plano alimentar simples e prático. Você não precisa de academia, personal trainer ou dietas restritivas. Apenas 10 minutos por dia em casa." },
   { q: "Tem alguma contraindicação?", a: "O pilates em casa é um exercício de baixo impacto, seguro para todas as idades. Porém, se você tem alguma condição médica específica, recomendamos consultar seu médico antes de iniciar." },
   { q: "Em quanto tempo vejo resultados?", a: "A maioria das alunas relata resultados visíveis já nas primeiras 2 semanas. Resultados mais expressivos aparecem entre 4 a 8 semanas seguindo o protocolo." },
-  { q: "Como funciona a garantia?", a: "Você tem 7 dias para experimentar o protocolo completo. Se não ficar satisfeita por qualquer motivo, basta solicitar o reembolso e devolvemos 100% do valor. Sem perguntas." },
+  { q: "Como funciona a garantia?", a: "Você tem 30 dias para experimentar o protocolo completo. Se não ficar satisfeita por qualquer motivo, basta solicitar o reembolso e devolvemos 100% do valor. Sem perguntas." },
   { q: "O que vem no protocolo?", a: "Você recebe: treinos de pilates de 10 min/dia, plano de reposição hormonal natural, guia anti-barriga, receitas saudáveis, aulas em vídeo e acesso vitalício pelo celular." },
 ];
 
@@ -244,8 +245,8 @@ const ProductScreen = () => {
 
       {/* 9. Garantia */}
       <div className="bg-card rounded-[var(--radius)] p-5 text-center" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
-        <p className="text-[32px] mb-2">🏅</p>
-        <p className="font-display text-lg font-bold" style={{ color: "var(--dark)" }}>Garantia de 7 Dias</p>
+        <img src={garantia30dias} alt="Garantia de 30 dias" className="w-24 h-24 mx-auto mb-2 object-contain" />
+        <p className="font-display text-lg font-bold" style={{ color: "var(--dark)" }}>Garantia de 30 Dias</p>
         <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
           Se por qualquer motivo você não ficar satisfeita com os resultados, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.
         </p>
@@ -300,7 +301,7 @@ const ProductScreen = () => {
       <CTAButton />
       <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
         <span>🔒 Compra 100% segura</span>
-        <span>✅ Garantia de 7 dias</span>
+        <span>✅ Garantia de 30 dias</span>
       </div>
 
       {/* 13. Urgência + social proof */}
