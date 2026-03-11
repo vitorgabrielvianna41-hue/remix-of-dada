@@ -105,7 +105,9 @@ const ProductScreen = () => {
       </div>
 
       {/* 3. O que está incluso */}
-      <div className="bg-card rounded-[var(--radius)] p-5" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
+      <div className="bg-card rounded-[var(--radius)] overflow-hidden" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
+        <img src={protocoloApp} alt="App Protocolo Completo" className="w-full h-auto object-cover" />
+        <div className="p-5">
         <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider mb-3">
           APP PROTOCOLO COMPLETO · ACESSO VITALÍCIO
         </p>
