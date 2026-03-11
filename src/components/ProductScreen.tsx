@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import avatarLarissa from "@/assets/avatar-larissa.png";
 import avatarSimone from "@/assets/avatar-simone.png";
+import avatarDraAna from "@/assets/avatar-dra-ana.png";
 import transformationImage from "@/assets/transformation-result.png";
 
 const FAQ_ITEMS = [
@@ -164,12 +165,11 @@ const ProductScreen = () => {
 
       {/* 5. Autoridade */}
       <div className="bg-card rounded-[var(--radius)] p-5 flex items-center gap-4" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
-        <div
-          className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 text-lg font-bold"
-          style={{ background: "linear-gradient(135deg, var(--amber), var(--amber-dark))", color: "var(--dark)" }}
-        >
-          AP
-        </div>
+        <img
+          src={avatarDraAna}
+          alt="Profa. Ana Paula Mendes"
+          className="w-14 h-14 rounded-full object-cover flex-shrink-0"
+        />
         <div>
           <p className="text-xs text-muted-foreground">Plano gerado por:</p>
           <p className="text-sm font-bold" style={{ color: "var(--dark)" }}>Profa. Ana Paula Mendes</p>

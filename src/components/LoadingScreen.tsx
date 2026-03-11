@@ -1,5 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import avatarLucia from "@/assets/avatar-lucia.png";
+import avatarVivan from "@/assets/vivan-avatar.png";
+import avatarCarminha from "@/assets/avatar-carminha.png";
+import avatarLuciana from "@/assets/avatar-luciana.png";
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -16,21 +20,21 @@ const testimonials = [
   {
     name: "Lucia Ribeiro",
     role: "Atendente em loja",
-    avatar: "👩",
+    avatar: avatarLucia,
     text: "Desde que comecei estou eliminando uma média de ",
     highlight: "1kg por semana, totalizando 10,5kg.",
   },
   {
     name: "Vivan Almeida",
     role: "Autônoma",
-    avatar: "👩",
+    avatar: avatarVivan,
     text: "Quando passei dos 40 meu corpo piorou muito na pré-menopausa. Em 3 meses consegui ",
     highlight: "perder 5kg em 2 meses.",
   },
   {
     name: "Carminha S.",
     role: "56 anos – Aposentada",
-    avatar: "👩‍🦱",
+    avatar: avatarCarminha,
     text: "Perdi ",
     highlight: "8kg em 8 semanas",
     textAfter: " e nem acreditava que era possível depois dos 55. A barriga da menopausa foi embora!",
@@ -38,7 +42,7 @@ const testimonials = [
   {
     name: "Luciana M.",
     role: "49 anos – Professora",
-    avatar: "👩‍🦳",
+    avatar: avatarLuciana,
     text: "Já tinha tentado de tudo. Com apenas 10 min por dia consegui ",
     highlight: "-14kg em 3 meses",
     textAfter: " e mais disposição do que tinha aos 30!",
@@ -160,12 +164,11 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}
           >
             <div className="flex items-center gap-3 mb-2.5">
-              <div
-                className="w-[42px] h-[42px] rounded-full flex items-center justify-center text-lg flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, var(--amber), var(--amber-dark))" }}
-              >
-                {testi.avatar}
-              </div>
+              <img
+                src={testi.avatar}
+                alt={testi.name}
+                className="w-[42px] h-[42px] rounded-full object-cover flex-shrink-0"
+              />
               <div>
                 <div className="font-bold text-[15px]" style={{ color: "var(--dark)" }}>
                   {testi.name}
