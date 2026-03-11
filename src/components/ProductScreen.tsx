@@ -141,6 +141,7 @@ const ProductScreen = () => {
             </div>
           ))}
         </div>
+        </div>
       </div>
 
       {/* 4. Preço + CTA (1º bloco) */}
