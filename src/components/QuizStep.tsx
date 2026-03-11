@@ -25,7 +25,9 @@ const QuizStep = ({
   totalSteps,
 }: QuizStepProps) => {
   const [localMulti, setLocalMulti] = useState<string[]>(multiSelected);
-  const [sliderValue, setSliderValue] = useState(step.sliderConfig?.default ?? 70);
+  const [sliderValue, setSliderValue] = useState(step?.sliderConfig?.default ?? 70);
+
+  if (!step) return null;
   const [useAltUnit, setUseAltUnit] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
