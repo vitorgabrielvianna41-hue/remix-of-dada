@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import avatarLarissa from "@/assets/avatar-larissa.png";
 import avatarSimone from "@/assets/avatar-simone.png";
+import avatarDraAna from "@/assets/avatar-dra-ana.png";
 import transformationImage from "@/assets/transformation-result.png";
 
 const FAQ_ITEMS = [
