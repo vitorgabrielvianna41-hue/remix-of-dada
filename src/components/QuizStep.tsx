@@ -35,6 +35,8 @@ const QuizStep = ({
     setLocalMulti([]);
     setSliderValue(step?.sliderConfig?.default ?? 70);
     setUseAltUnit(false);
+  }, [step?.id, step?.sliderConfig?.default]);
+
   const handleSliderMove = useCallback(
     (clientX: number) => {
       if (!trackRef.current || !step?.sliderConfig) return;
