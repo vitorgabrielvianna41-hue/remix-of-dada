@@ -2,16 +2,20 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import avatarCarminha from "@/assets/avatar-carminha.png";
 import avatarLuciana from "@/assets/avatar-luciana.png";
+import resultCarminha from "@/assets/result-carminha.png";
+import resultMaria from "@/assets/result-maria.png";
+import resultLuciana from "@/assets/result-luciana.png";
+import resultDona from "@/assets/result-dona.png";
 
 interface ResultsScreenProps {
   onContinue?: () => void;
 }
 
 const transformations = [
-  { image: "/images/result-carminha.png", caption: "📸 Resultado Real: -9kg em 8 semanas (54 anos)" },
-  { image: "/images/result-luciana.png", caption: "📸 Resultado Real: -14kg em 3 meses (49 anos)" },
-  { image: "/images/result-maria.png", caption: "📸 Resultado Real: -24kg em 5 meses (64 anos)" },
-  { image: "/images/result-dona.png", caption: "📸 Resultado Real: -8kg em 8 semanas (56 anos)" },
+  { image: resultCarminha, caption: "📸 Resultado Real: -9kg em 8 semanas (54 anos)" },
+  { image: resultLuciana, caption: "📸 Resultado Real: -14kg em 3 meses (49 anos)" },
+  { image: resultMaria, caption: "📸 Resultado Real: -24kg em 5 meses (64 anos)" },
+  { image: resultDona, caption: "📸 Resultado Real: -8kg em 8 semanas (56 anos)" },
 ];
 
 const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
