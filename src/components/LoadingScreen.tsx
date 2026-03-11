@@ -20,21 +20,21 @@ const testimonials = [
   {
     name: "Lucia Ribeiro",
     role: "Atendente em loja",
-    avatar: "👩",
+    avatar: avatarLucia,
     text: "Desde que comecei estou eliminando uma média de ",
     highlight: "1kg por semana, totalizando 10,5kg.",
   },
   {
     name: "Vivan Almeida",
     role: "Autônoma",
-    avatar: "👩",
+    avatar: avatarVivan,
     text: "Quando passei dos 40 meu corpo piorou muito na pré-menopausa. Em 3 meses consegui ",
     highlight: "perder 5kg em 2 meses.",
   },
   {
     name: "Carminha S.",
     role: "56 anos – Aposentada",
-    avatar: "👩‍🦱",
+    avatar: avatarCarminha,
     text: "Perdi ",
     highlight: "8kg em 8 semanas",
     textAfter: " e nem acreditava que era possível depois dos 55. A barriga da menopausa foi embora!",
@@ -42,7 +42,7 @@ const testimonials = [
   {
     name: "Luciana M.",
     role: "49 anos – Professora",
-    avatar: "👩‍🦳",
+    avatar: avatarLuciana,
     text: "Já tinha tentado de tudo. Com apenas 10 min por dia consegui ",
     highlight: "-14kg em 3 meses",
     textAfter: " e mais disposição do que tinha aos 30!",
