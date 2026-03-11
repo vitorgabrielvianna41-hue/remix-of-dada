@@ -301,7 +301,7 @@ const ProductScreen = () => {
       <CTAButton />
       <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
         <span>🔒 Compra 100% segura</span>
-        <span>✅ Garantia de 7 dias</span>
+        <span>✅ Garantia de 30 dias</span>
       </div>
 
       {/* 13. Urgência + social proof */}
