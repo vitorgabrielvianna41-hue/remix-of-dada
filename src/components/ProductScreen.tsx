@@ -244,8 +244,8 @@ const ProductScreen = () => {
 
       {/* 9. Garantia */}
       <div className="bg-card rounded-[var(--radius)] p-5 text-center" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
-        <p className="text-[32px] mb-2">🏅</p>
-        <p className="font-display text-lg font-bold" style={{ color: "var(--dark)" }}>Garantia de 7 Dias</p>
+        <img src={garantia30dias} alt="Garantia de 30 dias" className="w-24 h-24 mx-auto mb-2 object-contain" />
+        <p className="font-display text-lg font-bold" style={{ color: "var(--dark)" }}>Garantia de 30 Dias</p>
         <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
           Se por qualquer motivo você não ficar satisfeita com os resultados, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.
         </p>
