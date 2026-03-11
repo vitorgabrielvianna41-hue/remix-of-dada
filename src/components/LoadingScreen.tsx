@@ -164,12 +164,11 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}
           >
             <div className="flex items-center gap-3 mb-2.5">
-              <div
-                className="w-[42px] h-[42px] rounded-full flex items-center justify-center text-lg flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, var(--amber), var(--amber-dark))" }}
-              >
-                {testi.avatar}
-              </div>
+              <img
+                src={testi.avatar}
+                alt={testi.name}
+                className="w-[42px] h-[42px] rounded-full object-cover flex-shrink-0"
+              />
               <div>
                 <div className="font-bold text-[15px]" style={{ color: "var(--dark)" }}>
                   {testi.name}
