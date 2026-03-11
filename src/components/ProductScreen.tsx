@@ -23,7 +23,7 @@ const COMPARISON = [
 
 const CTAButton = () => (
   <a
-    href="#checkout"
+    href="https://pay.lowify.com.br/checkout?product_id=hFqJVa"
     className="block w-full py-[17px] rounded-[var(--radius)] text-[17px] font-extrabold uppercase tracking-wide text-center transition-all hover:-translate-y-0.5"
     style={{
       background: "linear-gradient(135deg, var(--amber), var(--amber-dark))",
