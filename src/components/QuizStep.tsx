@@ -25,7 +25,7 @@ const QuizStep = ({
   totalSteps,
 }: QuizStepProps) => {
   const [localMulti, setLocalMulti] = useState<string[]>(multiSelected);
-  const [sliderValue, setSliderValue] = useState(step.sliderConfig?.default ?? 70);
+  const [sliderValue, setSliderValue] = useState(step?.sliderConfig?.default ?? 70);
   const [useAltUnit, setUseAltUnit] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -33,27 +33,29 @@ const QuizStep = ({
   // Reset local state when step changes
   useEffect(() => {
     setLocalMulti([]);
-    setSliderValue(step.sliderConfig?.default ?? 70);
+    setSliderValue(step?.sliderConfig?.default ?? 70);
     setUseAltUnit(false);
-  }, [step.id, step.sliderConfig?.default]);
-
-  const toggleMulti = (value: string) => {
-    setLocalMulti((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
-    );
-  };
+  }, [step?.id, step?.sliderConfig?.default]);
 
   const handleSliderMove = useCallback(
     (clientX: number) => {
-      if (!trackRef.current || !step.sliderConfig) return;
+      if (!trackRef.current || !step?.sliderConfig) return;
       const rect = trackRef.current.getBoundingClientRect();
       const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
       const { min, max } = step.sliderConfig;
       const val = Math.round(min + pct * (max - min));
       setSliderValue(val);
     },
-    [step.sliderConfig]
+    [step?.sliderConfig]
   );
+
+  if (!step) return null;
+
+  const toggleMulti = (value: string) => {
+    setLocalMulti((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
+  };
 
   const onPointerDown = (e: React.PointerEvent) => {
     isDragging.current = true;
