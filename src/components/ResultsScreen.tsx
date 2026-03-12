@@ -113,15 +113,28 @@ const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
       </p>
 
       {/* Result photos carousel */}
-      <div className="overflow-hidden rounded-[var(--radius)]" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
-        <img
-          src={transformations[activeSlide].image}
-          alt={transformations[activeSlide].caption}
-          className="w-full h-auto object-cover"
-        />
-      </div>
+      <Carousel
+        setApi={setCarouselApi}
+        opts={{ align: "start", loop: true }}
+        className="w-full"
+      >
+        <CarouselContent className="ml-0">
+          {transformations.map((transformation) => (
+            <CarouselItem key={transformation.caption} className="pl-0">
+              <div className="overflow-hidden rounded-[var(--radius)]" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
+                <img
+                  src={transformation.image}
+                  alt={transformation.caption}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
       <p className="text-xs text-center font-semibold text-muted-foreground">
-        {transformations[activeSlide].caption}
+        {transformations[activeSlide]?.caption}
       </p>
 
       {/* Carousel dots */}
@@ -129,7 +142,8 @@ const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
         {transformations.map((_, i) => (
           <button
             key={i}
-            onClick={() => setActiveSlide(i)}
+            type="button"
+            onClick={() => carouselApi?.scrollTo(i)}
             className="w-2.5 h-2.5 rounded-full transition-all"
             style={{
               background: i === activeSlide ? "var(--amber)" : "hsl(var(--border))",
