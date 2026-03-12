@@ -13,21 +13,42 @@ interface ResultsScreenProps {
 }
 
 const transformations = [
-  { image: "/results/result-9kg-54anos.png", caption: "📸 Resultado Real: -9kg em 8 semanas (54 anos)" },
-  { image: "/results/result-14kg-49anos.png", caption: "📸 Resultado Real: -14kg em 3 meses (49 anos)" },
-  { image: "/results/result-24kg-64anos.png", caption: "📸 Resultado Real: -24kg em 5 meses (64 anos)" },
-  { image: "/results/result-8kg-56anos.png", caption: "📸 Resultado Real: -8kg em 8 semanas (56 anos)" },
+  { image: result9kg54anos, caption: "📸 Resultado Real: -9kg em 8 semanas (54 anos)" },
+  { image: result14kg49anos, caption: "📸 Resultado Real: -14kg em 3 meses (49 anos)" },
+  { image: result24kg64anos, caption: "📸 Resultado Real: -24kg em 5 meses (64 anos)" },
+  { image: result8kg56anos, caption: "📸 Resultado Real: -8kg em 8 semanas (56 anos)" },
 ];
 
 const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   useEffect(() => {
+    if (!carouselApi) return;
+
+    const onSelect = () => {
+      setActiveSlide(carouselApi.selectedScrollSnap());
+    };
+
+    onSelect();
+    carouselApi.on("select", onSelect);
+    carouselApi.on("reInit", onSelect);
+
+    return () => {
+      carouselApi.off("select", onSelect);
+      carouselApi.off("reInit", onSelect);
+    };
+  }, [carouselApi]);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % transformations.length);
+      carouselApi.scrollNext();
     }, 3000);
+
     return () => clearInterval(timer);
-  }, []);
+  }, [carouselApi]);
 
   return (
     <motion.div
