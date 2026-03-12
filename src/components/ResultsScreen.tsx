@@ -1,28 +1,54 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import avatarCarminha from "@/assets/avatar-carminha.png";
 import avatarLuciana from "@/assets/avatar-luciana.png";
+import result9kg54anos from "@/assets/result-9kg-54anos.png";
+import result14kg49anos from "@/assets/result-14kg-49anos.png";
+import result24kg64anos from "@/assets/result-24kg-64anos.png";
+import result8kg56anos from "@/assets/result-8kg-56anos.png";
 
 interface ResultsScreenProps {
   onContinue?: () => void;
 }
 
 const transformations = [
-  { image: "/results/result-9kg-54anos.png", caption: "📸 Resultado Real: -9kg em 8 semanas (54 anos)" },
-  { image: "/results/result-14kg-49anos.png", caption: "📸 Resultado Real: -14kg em 3 meses (49 anos)" },
-  { image: "/results/result-24kg-64anos.png", caption: "📸 Resultado Real: -24kg em 5 meses (64 anos)" },
-  { image: "/results/result-8kg-56anos.png", caption: "📸 Resultado Real: -8kg em 8 semanas (56 anos)" },
+  { image: result9kg54anos, caption: "📸 Resultado Real: -9kg em 8 semanas (54 anos)" },
+  { image: result14kg49anos, caption: "📸 Resultado Real: -14kg em 3 meses (49 anos)" },
+  { image: result24kg64anos, caption: "📸 Resultado Real: -24kg em 5 meses (64 anos)" },
+  { image: result8kg56anos, caption: "📸 Resultado Real: -8kg em 8 semanas (56 anos)" },
 ];
 
 const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   useEffect(() => {
+    if (!carouselApi) return;
+
+    const onSelect = () => {
+      setActiveSlide(carouselApi.selectedScrollSnap());
+    };
+
+    onSelect();
+    carouselApi.on("select", onSelect);
+    carouselApi.on("reInit", onSelect);
+
+    return () => {
+      carouselApi.off("select", onSelect);
+      carouselApi.off("reInit", onSelect);
+    };
+  }, [carouselApi]);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % transformations.length);
+      carouselApi.scrollNext();
     }, 3000);
+
     return () => clearInterval(timer);
-  }, []);
+  }, [carouselApi]);
 
   return (
     <motion.div
@@ -87,15 +113,28 @@ const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
       </p>
 
       {/* Result photos carousel */}
-      <div className="overflow-hidden rounded-[var(--radius)]" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
-        <img
-          src={transformations[activeSlide].image}
-          alt={transformations[activeSlide].caption}
-          className="w-full h-auto object-cover"
-        />
-      </div>
+      <Carousel
+        setApi={setCarouselApi}
+        opts={{ align: "start", loop: true }}
+        className="w-full"
+      >
+        <CarouselContent className="ml-0">
+          {transformations.map((transformation) => (
+            <CarouselItem key={transformation.caption} className="pl-0">
+              <div className="overflow-hidden rounded-[var(--radius)]" style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}>
+                <img
+                  src={transformation.image}
+                  alt={transformation.caption}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
       <p className="text-xs text-center font-semibold text-muted-foreground">
-        {transformations[activeSlide].caption}
+        {transformations[activeSlide]?.caption}
       </p>
 
       {/* Carousel dots */}
@@ -103,7 +142,8 @@ const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
         {transformations.map((_, i) => (
           <button
             key={i}
-            onClick={() => setActiveSlide(i)}
+            type="button"
+            onClick={() => carouselApi?.scrollTo(i)}
             className="w-2.5 h-2.5 rounded-full transition-all"
             style={{
               background: i === activeSlide ? "var(--amber)" : "hsl(var(--border))",
