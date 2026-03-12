@@ -21,7 +21,9 @@ const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   const handleImageError = (event: SyntheticEvent<HTMLImageElement>) => {
-    event.currentTarget.src = transformationFallback;
+    const target = event.currentTarget;
+    target.onerror = null;
+    target.src = transformationFallback;
   };
 
   useEffect(() => {
