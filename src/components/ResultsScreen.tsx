@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type SyntheticEvent } from "react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import avatarCarminha from "@/assets/avatar-carminha.png";
 import avatarLuciana from "@/assets/avatar-luciana.png";
+import transformationFallback from "@/assets/transformation-result.png";
 
 interface ResultsScreenProps {
   onContinue?: () => void;
