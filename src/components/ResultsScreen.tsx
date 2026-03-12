@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import avatarCarminha from "@/assets/avatar-carminha.png";
 import avatarLuciana from "@/assets/avatar-luciana.png";
+import result9kg54anos from "@/assets/result-9kg-54anos.png";
+import result14kg49anos from "@/assets/result-14kg-49anos.png";
+import result24kg64anos from "@/assets/result-24kg-64anos.png";
+import result8kg56anos from "@/assets/result-8kg-56anos.png";
 
 interface ResultsScreenProps {
   onContinue?: () => void;
