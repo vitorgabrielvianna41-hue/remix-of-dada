@@ -128,6 +128,7 @@ const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
                   alt={transformation.caption}
                   className="w-full h-auto object-cover"
                   loading="lazy"
+                  onError={handleImageError}
                 />
               </div>
             </CarouselItem>
