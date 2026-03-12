@@ -20,6 +20,10 @@ const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
+  const handleImageError = (event: SyntheticEvent<HTMLImageElement>) => {
+    event.currentTarget.src = transformationFallback;
+  };
+
   useEffect(() => {
     if (!carouselApi) return;
 
