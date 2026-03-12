@@ -1,23 +1,34 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type SyntheticEvent } from "react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import avatarCarminha from "@/assets/avatar-carminha.png";
 import avatarLuciana from "@/assets/avatar-luciana.png";
+import result9kg54anos from "@/assets/result-9kg-54anos.png";
+import result14kg49anos from "@/assets/result-14kg-49anos.png";
+import result24kg64anos from "@/assets/result-24kg-64anos.png";
+import result8kg56anos from "@/assets/result-8kg-56anos.png";
+import transformationFallback from "@/assets/transformation-result.png";
 
 interface ResultsScreenProps {
   onContinue?: () => void;
 }
 
 const transformations = [
-  { image: "/results/result-9kg-54anos.png", caption: "📸 Resultado Real: -9kg em 8 semanas (54 anos)" },
-  { image: "/results/result-14kg-49anos.png", caption: "📸 Resultado Real: -14kg em 3 meses (49 anos)" },
-  { image: "/results/result-24kg-64anos.png", caption: "📸 Resultado Real: -24kg em 5 meses (64 anos)" },
-  { image: "/results/result-8kg-56anos.png", caption: "📸 Resultado Real: -8kg em 8 semanas (56 anos)" },
+  { image: result9kg54anos, caption: "📸 Resultado Real: -9kg em 8 semanas (54 anos)" },
+  { image: result14kg49anos, caption: "📸 Resultado Real: -14kg em 3 meses (49 anos)" },
+  { image: result24kg64anos, caption: "📸 Resultado Real: -24kg em 5 meses (64 anos)" },
+  { image: result8kg56anos, caption: "📸 Resultado Real: -8kg em 8 semanas (56 anos)" },
 ];
 
 const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  const handleImageError = (event: SyntheticEvent<HTMLImageElement>) => {
+    const target = event.currentTarget;
+    target.onerror = null;
+    target.src = transformationFallback;
+  };
 
   useEffect(() => {
     if (!carouselApi) return;
@@ -123,6 +134,7 @@ const ResultsScreen = ({ onContinue }: ResultsScreenProps) => {
                   alt={transformation.caption}
                   className="w-full h-auto object-cover"
                   loading="lazy"
+                  onError={handleImageError}
                 />
               </div>
             </CarouselItem>
